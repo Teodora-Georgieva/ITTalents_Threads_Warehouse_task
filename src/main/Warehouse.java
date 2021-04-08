@@ -42,7 +42,7 @@ public class Warehouse {
         return 5;
     }
 
-    public synchronized void supply(){ //sipi
+    public synchronized void supply(){
         while (!hasDeficitProducts()) {
             try {
                 System.out.println(Thread.currentThread().getName() + " is waiting because there are no deficit products in " +
@@ -59,7 +59,7 @@ public class Warehouse {
         notifyAll();
     }
 
-    public synchronized void deliver(ProductName productName){ //zemi
+    public synchronized void deliver(ProductName productName){
         while(isDeficit(productName)){
             try {
                 System.out.println(Thread.currentThread().getName() + " is waiting because " + productName + " is deficit" +
